@@ -1,0 +1,120 @@
+<h2 class="font-text text-danger text-center p-5">Tạo Tour Du Lịch</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 background p-5 shadow-lg rounded">
+      <form class="was-validated" [formGroup]="createForm" (ngSubmit)="create()">
+        <div class="input-group mb-3">
+          <span class="input-group-text col-3" id="inputGroup-sizing-default1">Tên Tour</span>
+          <input type="text" formControlName="tenTour" class="form-control col-9" aria-label="Sizing example input"
+                 aria-describedby="inputGroup-sizing-default1" required>
+          <span class="alert-danger input-group-text" *ngIf="createForm.controls.tenTour.hasError('required') && createForm.controls.tenTour.touched">Không được để trống</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text col-3" id="inputGroup-sizing-default32">Địa điểm</span>
+          <input type="text" formControlName="diaDiem" class="form-control" aria-label="Sizing example input"
+                 aria-describedby="inputGroup-sizing-default1" required>
+          <!--          <span class="alert-danger input-group-text"-->
+          <!--                *ngIf="createForm.controls.area.hasError('pattern')">Không nhập số âm và chữ</span>-->
+          <span class="alert-danger input-group-text" *ngIf="createForm.controls.diaDiem.hasError('required') && createForm.controls.diaDiem.touched">Không được để trống</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text col-3" id="inputGroup-sizing-default3">Ngày khởi hành</span>
+          <input type="date" formControlName="ngayKhoiHanh" class="form-control" aria-label="Sizing example input"
+                 aria-describedby="inputGroup-sizing-default3" required>
+          <span class="alert-danger input-group-text" *ngIf="createForm.controls.ngayKhoiHanh.hasError('invalid') && createForm.controls.ngayKhoiHanh.touched">Không được lớn hơn hiện tại</span>
+          <span class="alert-danger input-group-text" *ngIf="createForm.controls.ngayKhoiHanh.hasError('required') && createForm.controls.ngayKhoiHanh.touched">Không được để trống</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text col-3" id="inputGroup-sizing-default12">Ngày về</span>
+          <input type="date" formControlName="ngayVe" class="form-control" aria-label="Sizing example input"
+                 aria-describedby="inputGroup-sizing-default12" required>
+<!--          <span class="alert-danger input-group-text"-->
+<!--                *ngIf="createForm.controls.ngayVe.hasError('pattern')">Không đúng định dạng số điện thoại</span>-->
+          <span class="alert-danger input-group-text" *ngIf="createForm.controls.ngayVe.hasError('required') && createForm.controls.ngayVe.touched">Không được để trống</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text col-3" id="inputGroup-sizing-default47">Ngày kết thúc ĐK</span>
+          <input type="date" formControlName="ngayKetThucDangKy" class="form-control" aria-label="Sizing example input"
+                 aria-describedby="inputGroup-sizing-default7" required>
+<!--          <span class="alert-danger input-group-text"-->
+<!--                *ngIf="createForm.controls.email.hasError('email')">Không đúng định dạng email</span>-->
+          <span class="alert-danger input-group-text" *ngIf="createForm.controls.ngayKetThucDangKy.hasError('required') && createForm.controls.ngayKetThucDangKy.touched">Không được để trống</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text col-3" id="inputGroup-sizing-default37">Số lượng tối đa</span>
+          <input type="text" formControlName="soLuongNguoiToiDa" class="form-control" aria-label="Sizing example input"
+                 aria-describedby="inputGroup-sizing-default37" required>
+          <span class="alert-danger input-group-text" *ngIf="createForm.controls.soLuongNguoiToiDa.hasError('pattern') && createForm.controls.soLuongNguoiToiDa.touched">Không nhập số âm</span>
+          <span class="alert-danger input-group-text" *ngIf="createForm.controls.soLuongNguoiToiDa.hasError('required') && createForm.controls.soLuongNguoiToiDa.touched">Không được để trống</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text col-3" id="inputGroup-sizing-default27">Lịch trình</span>
+          <input type="text" formControlName="lichTrinh" class="form-control" aria-label="Sizing example input"
+                 aria-describedby="inputGroup-sizing-default27" required>
+<!--          <span class="alert-danger input-group-text" *ngIf="createForm.controls.gioDen.hasError('invalid')">Giờ phải trong phạm vi 5:00 đến 23:00</span>-->
+          <span class="alert-danger input-group-text" *ngIf="createForm.controls.lichTrinh.hasError('required') && createForm.controls.lichTrinh.touched">Không được để trống</span>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text col-3" id="inputGroup-sizing-default217">Đối tượng</span>
+          <input type="text" formControlName="yeuCauDoiTuong" class="form-control" aria-label="Sizing example input"
+                 aria-describedby="inputGroup-sizing-default27" required>
+<!--          <span class="alert-danger input-group-text" *ngIf="createForm.controls.gioDen.hasError('invalid')">Giờ phải trong phạm vi 5:00 đến 23:00</span>-->
+          <span class="alert-danger input-group-text" *ngIf="createForm.controls.yeuCauDoiTuong.hasError('required') && createForm.controls.yeuCauDoiTuong.touched">Không được để trống</span>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text col-3" id="inputGroup-sizing-default271">Chi phí</span>
+          <input type="text" formControlName="chiPhi" class="form-control" aria-label="Sizing example input"
+                 aria-describedby="inputGroup-sizing-default27" required>
+<!--          <span class="alert-danger input-group-text" *ngIf="createForm.controls.gioDen.hasError('invalid')">Giờ phải trong phạm vi 5:00 đến 23:00</span>-->
+          <span class="alert-danger input-group-text" *ngIf="createForm.controls.chiPhi.hasError('required') && createForm.controls.chiPhi.touched">Không được để trống</span>
+        </div>
+
+        <div class="input-group mb-3">
+          <label for="validationServer14" class="form-label col-3"><span class="input-group-text">Nhân viên tạo</span></label>
+          <select class="form-select is-invalid" formControlName="nhanVienTaoTour" id="validationServer14" aria-describedby="validationServer04Feedback"
+                  required>
+            <option selected value=""></option>
+            <option *ngFor="let nhanVien of nhanViens" [ngValue]="nhanVien">{{nhanVien.ten}}</option>
+          </select>
+          <span class="alert-danger input-group-text span" *ngIf="createForm.controls.nhanVienTaoTour.hasError('required') && createForm.controls.nhanVienTaoTour.touched">Không được để trống</span>
+        </div>
+        <div class="input-group mb-3">
+          <label for="validationServer14" class="form-label col-3"><span class="input-group-text">Phạm vi</span></label>
+          <select class="form-select is-invalid" formControlName="phamVi" id="validationServer4" aria-describedby="validationServer04Feedback"
+                  required>
+            <option selected value=""></option>
+            <option *ngFor="let phamVi of phamVis" [ngValue]="phamVi">{{phamVi.tenPhamVi}}</option>
+          </select>
+          <span class="alert-danger input-group-text span" *ngIf="createForm.controls.phamVi.hasError('required') && createForm.controls.phamVi.touched">Không được để trống</span>
+        </div>
+
+        <div class="input-group mb-3">
+          <label for="validationServer14" class="form-label col-3"><span class="input-group-text">Loại Tour</span></label>
+          <select class="form-select is-invalid" formControlName="loaiTour" id="validationServer44" aria-describedby="validationServer04Feedback"
+                  required>
+            <option selected value=""></option>
+            <option *ngFor="let loaiTour of loaiTours" [ngValue]="loaiTour">{{loaiTour.tenLoaiTour}}</option>
+          </select>
+          <span class="alert-danger input-group-text span" *ngIf="createForm.controls.loaiTour.hasError('required') && createForm.controls.loaiTour.touched">Không được để trống</span>
+        </div>
+
+        <div class="text-center mt-4">
+          <bttton class="btn btn-primary me-5" [routerLink]="['']">Quay về</bttton>
+          <button type="submit" class="btn btn-warning position-relative" [disabled]="!createForm.valid">
+            Tạo thông tin
+            <span
+              class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                    <span class="visually-hidden">New alerts</span>
+                    </span>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+

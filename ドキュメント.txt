@@ -1,0 +1,27 @@
+@Transactional
+@Modifying
+@Query(value = "update employee set flag = 0 where employee_id = :idDelete",
+        nativeQuery = true)
+    void softDelete(@Param("idDelete") Integer id);
+https://github.com/ITlqad1699/C1221G1_LeQuangAnhDa_module4/blob/main/case-study/furama-resort/src/main/java/com/codegym/casestudy/repository/employee/IEmployeeRepository.java
+
+@Modifying
+@Transactional
+@Query(value = "update employee set flag = 0 where employee_id in (?1)",
+            nativeQuery = true)
+    void deleteCheck(List<Integer> asList);
+
+ @Query(value = " select * from employee where `name` like :searchName and division_id " +
+                    "like :searchDivision and  position_id like :searchPosition and  education_degree_id like :searchEdu and flag = 1",
+            countQuery = "select * from employee where `name` like :searchName and division_id " +
+                    "like :searchDivision and  position_id like:searchPosition and  education_degree_id like:searchEdu and flag = 1",
+            nativeQuery = true)
+    Page<Employee> findAllByQuery(@Param("searchName") String name,
+                                  @Param("searchDivision") String divisionKey,
+                                  @Param("searchPosition") String positionKey,
+                                  @Param("searchEdu") String educationKey,
+                                  Pageable pageable);
+
+http://localhost:8080/api/manager-medicine/import-invoice?startDate=&endDate=2022/29/06&startTime=&endTime=23:59&page=&size=&fieldSort=
+
+http://localhost:8080/api/manager-medicine/import-invoice?startDate=&endDate=2022/29/06&startTime=&endTime=23:59&page=&size=&fieldSort=import_invoice_hour

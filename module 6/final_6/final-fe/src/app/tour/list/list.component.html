@@ -1,0 +1,75 @@
+<h2 class="font-text text-danger text-center p-5">Danh Sách Các Tour Du Lịch</h2>
+
+
+<div class="container text-center">
+
+  <div class="row">
+    <div class="p-5 col-lg-12 text-center">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Mã Tour</th>
+          <th scope="col">Người tạo</th>
+          <th scope="col">Phạm vi</th>
+          <th scope="col">Loại Tour</th>
+          <th scope="col">Tên Tour</th>
+          <th scope="col">Địa điểm</th>
+          <th scope="col">Ngày khởi hành</th>
+          <th scope="col">Số lượng</th>
+          <th scope="col">Lịch trình</th>
+          <th scope="col">Chi phí</th>
+          <th scope="col">Khác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let tour of tours|paginate : { itemsPerPage: 5, currentPage: p }; index as i">
+          <td>{{((p-1)*5)+(i+1)}}</td>
+          <td>{{tour.maTour}}</td>
+          <td>{{tour.nhanVienTaoTour.ten}}</td>
+          <td>{{tour.phamVi.tenPhamVi}}</td>
+          <td>{{tour.loaiTour.tenLoaiTour}}</td>
+          <td>{{tour.tenTour}}</td>
+          <td>{{tour.diaDiem}}</td>
+          <td>{{tour.ngayKhoiHanh}}</td>
+          <td>{{tour.soLuongNguoiToiDa}}</td>
+          <td>{{tour.lichTrinh}}</td>
+          <td>{{tour.chiPhi | number}} vnd</td>
+          <td>
+            <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" (click)="info(tour.maTour, tour.tenTour)" data-bs-target="#staticBackdrop">
+              <i class="bi bi-trash3-fill"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div style="justify-content: space-around;display: flex;">
+    <pagination-controls (pageChange)="p = $event" class="page-item"></pagination-controls>
+  </div>
+</div>
+
+<!--Modal xóa một trường-->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Xóa dịch vụ</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có đồng ý xóa thông tin của tour có id <mark>{{idDelete}}</mark> và tên <mark>{{nameDelete}}</mark>.</p>
+        <p>Lưu ý không thể hoàn tác nếu xóa.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="button" (click)="delete(idDelete)" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

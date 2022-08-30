@@ -1,0 +1,15 @@
+<form class="form-signin my-5" [formGroup]="signInForm" (ngSubmit)="submitSignIn()">
+  <img class="mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOXRcYVOltx6AbMgTUMw6t4VlUbYbmm8WL7w&usqp=CAU" alt="" width="72"
+       height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" formControlName="username"
+         placeholder="you@email.com" required autofocus>
+  <input type="password" formControlName="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <p class="mt-5 mb-3 text-muted">&copy; 2022-2027</p>
+</form>

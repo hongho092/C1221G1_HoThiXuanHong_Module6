@@ -1,0 +1,65 @@
+{
+  "book": [
+    {
+      "id": 1,
+      "bookCode": "S-0001",
+      "bookName": "Số đỏ",
+      "author": "Vũ Trọng Phụng",
+      "description": "bla bla...",
+      "quantity": 0
+    },
+    {
+      "id": 2,
+      "bookCode": "S-0002",
+      "bookName": "Truyện Kiều",
+      "author": "Nguyễn Du",
+      "description": "bla bla...",
+      "quantity": 1
+    },
+    {
+      "bookCode": "S-0001",
+      "bookName": "Đắc nhân tâm",
+      "author": "Tâm",
+      "description": "No discount",
+      "quantity": 10,
+      "id": 3
+    },
+    {
+      "bookCode": "S-0001",
+      "bookName": "sống giả",
+      "author": "Tâm",
+      "description": "Discount 11%",
+      "quantity": "12",
+      "id": 4
+    },
+    {
+      "bookCode": "S-0001",
+      "bookName": "Đắc nhân tâm",
+      "author": "Tâm",
+      "description": "No discount",
+      "quantity": "13",
+      "id": 5
+    }
+  ],
+  "student": [
+    {
+      "id": 1,
+      "studentCode": "HS-0001",
+      "studentName": "Trịnh Khải",
+      "className": "C1121"
+    },
+    {
+      "id": 2,
+      "studentCode": "HS-0002",
+      "studentName": "Văn Hậu",
+      "className": "C1121"
+    },
+    {
+      "id": 3,
+      "studentCode": "HS-0003",
+      "studentName": "Thanh Tâm",
+      "className": "C1121"
+    }
+  ],
+  "library-card": []
+}

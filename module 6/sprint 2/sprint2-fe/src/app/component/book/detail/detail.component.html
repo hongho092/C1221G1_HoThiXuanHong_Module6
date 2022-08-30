@@ -1,0 +1,58 @@
+<div class="container py-5 allBackground">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-3">
+      <img [src]="detailBook.img" [title]="detailBook.detail">
+    </div>
+    <div class="col-7">
+      <h3 class="text-center text-danger">{{detailBook.bookName | uppercase}}</h3>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-7 ms-5">
+          <p (change)="nameAuthor(detailBook.author.authorName)">Tác giả: {{detailBook.author.authorName}}</p>
+          <p>Nhà xuất bản: {{detailBook.publisher.publisherName}}</p>
+          <p>Thể loại: {{detailBook.category.categoryName}}</p>
+          <p>Mã sản phẩm: {{detailBook.id}}</p>
+          <p>Kích thước: {{detailBook.size}}</p>
+          <p>Số trang: {{detailBook.totalPage}}</p>
+        </div>
+        <div class="col-3">
+          <br><br>
+          <h4 class="background">Giá: {{detailBook.price | number}} vnd</h4>
+          <div class="my-2">
+            <span>Số lượng: </span>
+            <span (click)="reduce()"><i class="fa-solid fa-circle-minus mx-2"></i></span>
+            <button> {{quantity}} </button>
+            <span (click)="increase()"><i class="fa-solid fa-circle-plus mx-2"></i></span>
+          </div>
+          <button class="btn btn-primary my-2">Thêm vào giỏ hàng</button>
+          <button class="btn btn-primary">Mua ngay</button>
+        </div>
+      </div>
+
+      <hr>
+
+    </div>
+    <div class="col-1"></div>
+    <div class="col-1"></div>
+    <div class="col-10">
+      <h3 class="text-danger my-3">Nội dung sách</h3>
+      <p class="mb-3">{{detailBook.detail}}</p>
+    </div>
+    <div class="col-1"></div>
+
+    <div class="col-1"></div>
+    <div class="col-10">
+      <hr>
+      <h3 class="text-danger my-5">Sách có cùng tác giả</h3>
+      <div class="row">
+        <div class="col-3" *ngFor="let book of booksByAuthor" >
+          <img [src]="book.img" [title]="book.bookName" [routerLink]="['/book/detail',book.id,book.author.authorName]">
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+hr {
+  background-color: #e30d0d;
+  /*border: 1px none;*/
+  color: #b4a411;
+  height: 3px;
+}
+
+.background {
+  background-color: #f3d206;
+}
+
+img {
+  height: 300px;
+}
+
+/*.allBackground {*/
+/*  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNOAKV78CP5fjvGBuT3_7Mnv2czCnnEpiL8U3uawXw1o64la8B-tBF3ZdyitU5e4Uh3mk&usqp=CAU');*/
+/*  background-repeat: no-repeat;*/
+/*  background-attachment: fixed;*/
+/*  background-size: 100% 100%;*/
+/*}*/
